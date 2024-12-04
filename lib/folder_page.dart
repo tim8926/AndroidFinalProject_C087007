@@ -44,20 +44,24 @@ class _FolderPageState extends State<FolderPage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: Colors.white, // 하얀색 배경
+        backgroundColor: Colors.grey[900],
         title: const Text(
           "메모 제목 추가",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
         ),
         content: TextField(
           controller: memoController,
           decoration: const InputDecoration(
             hintText: "메모 제목",
-            hintStyle: TextStyle(color: Colors.black),
+            hintStyle: TextStyle(color: Colors.grey),
           ),
-          style: const TextStyle(color: Colors.black),
+          style: const TextStyle(color: Colors.white),
         ),
         actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text("취소", style: TextStyle(color: Colors.red)),
+          ),
           TextButton(
             onPressed: () {
               if (memoController.text.isNotEmpty) {
@@ -68,11 +72,7 @@ class _FolderPageState extends State<FolderPage> {
                 Navigator.pop(context);
               }
             },
-            child: const Text("저장", style: TextStyle(color: Colors.black)),
-          ),
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text("취소", style: TextStyle(color: Colors.red)),
+            child: const Text("저장", style: TextStyle(color: Colors.white)),
           ),
         ],
       ),

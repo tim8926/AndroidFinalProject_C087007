@@ -58,6 +58,10 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text("취소", style: TextStyle(color: Colors.red)),
+          ),
+          TextButton(
             onPressed: () {
               if (folderController.text.isNotEmpty) {
                 setState(() {
@@ -68,10 +72,6 @@ class _HomePageState extends State<HomePage> {
               }
             },
             child: const Text("저장", style: TextStyle(color: Colors.white)),
-          ),
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text("취소", style: TextStyle(color: Colors.grey)),
           ),
         ],
       ),
@@ -102,23 +102,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          color: Colors.black,
-          onPressed: () {
-            Navigator.pop(context); // 뒤로가기 버튼
-          },
-        ),
-      ),
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 0),
+            const SizedBox(height: 55),
             // "Folder" 문구와 아이콘을 좌측 상단에 크게 표시
             Row(
               children: const [
